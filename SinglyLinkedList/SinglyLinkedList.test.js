@@ -115,6 +115,20 @@ describe('Singly Linked List Class', () => {
       ll.insertNodesAtTail([1, 2, 3, 4, 5]);
       expect(ll.hasCycle()).toBe(false);
     });
+    test('should return true for a single node cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1]);
+      ll.head.next = ll.head;
+      expect(ll.hasCycle()).toBe(true);
+    });
+
+    test('should return true for the two node cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2]);
+      ll.head.next.next = ll.head;
+      expect(ll.hasCycle()).toBe(true);
+    });
+
     test('should return true if there is a cycle', () => {
       const ll = new SinglyLinkedList();
       ll.insertNodesAtTail([1, 2, 3]);
