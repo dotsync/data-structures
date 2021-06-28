@@ -22,7 +22,19 @@ class SinglyLinkedList {
     }
   }
   // addToTail
-  addToTail(value) {}
+  addToTail(value) {
+    if (this.head === null) {
+      this.head = new Node(value);
+      this.size++;
+    } else {
+      let currentNode = this.head;
+      while (currentNode.next !== null) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = new Node(value);
+      this.size++;
+    }
+  }
   // print
 }
 
