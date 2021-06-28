@@ -58,9 +58,22 @@ class SinglyLinkedList {
       return [oldHead, this.size];
     }
   }
+  removeTail() {
+    let currentNode = this.head;
+    if (!currentNode) return null;
+    if (!currentNode.next) {
+      this.head = null;
+      return;
+    }
+    while (currentNode.next.next !== null) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = null;
+  }
   /**
    * @param {Array} arr Values to add to the linked list
    */
+  // 1 --- 2 --- 3 --- 4
   insertNodesAtTail(arr) {
     for (let i = 0; i < arr.length; i++) {
       this.addToTail(arr[i]);
