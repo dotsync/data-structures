@@ -64,5 +64,32 @@ describe('Doubly Linked List', () => {
       expect(dll.tail.next).toBeNull();
       expect(dll.size).toBe(1);
     });
+    test('should add two nodes to tail of linked list', () => {
+      const dll = new DoublyLinkedList();
+      dll.addToTail(1);
+      dll.addToTail(2);
+      expect(dll.head.value).toBe(1);
+      expect(dll.head.next.value).toBe(2);
+      expect(dll.head.next.next).toBeNull();
+      expect(dll.tail.value).toBe(2);
+      expect(dll.tail.prev.value).toBe(1);
+      expect(dll.tail.prev.prev).toBeNull();
+    });
+    test('should add many nodes to the tail of linked list', () => {
+      const dll = new DoublyLinkedList();
+      dll.addToTail(1);
+      dll.addToTail(2);
+      dll.addToTail(3);
+      dll.addToTail(4);
+      dll.addToTail(5);
+      expect(dll.head.value).toBe(1);
+      expect(dll.head.next.value).toBe(2);
+      expect(dll.head.next.next.value).toBe(3);
+      expect(dll.tail.value).toBe(5);
+      expect(dll.tail.prev.value).toBe(4);
+      expect(dll.tail.prev.prev.value).toBe(3);
+      expect(dll.tail.next).toBeNull();
+      expect(dll.head.prev).toBeNull();
+    });
   });
 });
