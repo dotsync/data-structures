@@ -105,4 +105,23 @@ describe('Singly Linked List Class', () => {
       expect(ll.head.next.next).toBeNull();
     });
   });
+  describe('hasCycle method', () => {
+    test('should return false if given an empty list', () => {
+      const ll = new SinglyLinkedList();
+      expect(ll.hasCycle()).toBe(false);
+    });
+    test('should return false if there is no cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5]);
+      expect(ll.hasCycle()).toBe(false);
+    });
+    test('should return true if there is a cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3]);
+      // attach cycle
+      ll.head.next.next.next = ll.head.next;
+      // check cycle
+      expect(ll.hasCycle()).toBe(true);
+    });
+  });
 });
