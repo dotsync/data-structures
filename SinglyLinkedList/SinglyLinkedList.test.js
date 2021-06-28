@@ -85,4 +85,24 @@ describe('Singly Linked List Class', () => {
       expect(places.size).toBe(3);
     });
   });
+  describe('removeTail method test suite', () => {
+    test('should return null if list is empty', () => {
+      const ll = new SinglyLinkedList();
+      expect(ll.removeTail()).toBeNull();
+    });
+    test('should remove the head if it is the only node in list', () => {
+      const ll = new SinglyLinkedList();
+      ll.addToTail(1);
+      ll.removeTail();
+      expect(ll.head).toBeNull();
+    });
+
+    test('should remove node from the tail of list', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3]);
+      ll.removeTail();
+      expect(ll.head.next.value).toBe(2);
+      expect(ll.head.next.next).toBeNull();
+    });
+  });
 });
