@@ -22,12 +22,14 @@ describe('Doubly Linked List', () => {
       expect(dll.head.prev).toBeNull();
       expect(dll.size).toBe(1);
     });
+
     test('should be head and tail if it is the only node in the list', () => {
       expect(dll.tail.value).toBe('First');
       expect(dll.tail.next).toBeNull();
       expect(dll.tail.prev).toBeNull();
       expect(dll.size).toBe(1);
     });
+
     test('should add node to the head of the list that already has nodes', () => {
       dll.addToHead('Second');
       dll.addToHead('Third');
@@ -35,17 +37,17 @@ describe('Doubly Linked List', () => {
       expect(dll.head.next.value).toBe('Second');
       expect(dll.head.next.next.value).toBe('First');
       expect(dll.tail.value).toBe('First');
+      expect(dll.head.next.next.next).toBeNull();
       expect(dll.tail.next).toBeNull();
     });
     test('should point to previous nodes aswell', () => {
-      dll.addToHead('Second');
-      dll.addToHead('Third');
       expect(dll.tail.value).toBe('First');
       expect(dll.tail.next).toBeNull();
       expect(dll.head.prev).toBeNull();
       expect(dll.tail.prev.value).toBe('Second');
       expect(dll.tail.prev.prev.value).toBe('Third');
       expect(dll.tail.prev.prev.prev).toBeNull();
+      console.log(dll.head.next.next);
     });
   });
 });
