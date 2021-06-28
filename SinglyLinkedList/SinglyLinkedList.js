@@ -4,6 +4,18 @@ class Node {
     this.next = null;
   }
 }
+
+/**
+ * Time
+ * access: O(n)
+ * search: O(n)
+ * insertion: O(1)
+ * deletion: O(1)
+ *
+ * space
+ * O(n)
+ */
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
