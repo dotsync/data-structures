@@ -83,6 +83,8 @@ class SinglyLinkedList {
     currentNode.next = null;
   }
   hasCycle(head = this.head) {
+    // space O(1)
+    // time O(n)
     let slow = head;
     let fast = head;
     while (fast !== null && fast.next !== null) {
