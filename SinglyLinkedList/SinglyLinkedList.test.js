@@ -12,7 +12,7 @@ Singly linked lists do not have a tail
  */
 
 describe('Singly Linked List Class', () => {
-  describe('Basic functionality of class test suite', () => {
+  describe('Basic functionality of class', () => {
     const ll = new SinglyLinkedList();
     test('should have a head equal to null', () => {
       expect(ll.head).toBeNull();
@@ -21,7 +21,7 @@ describe('Singly Linked List Class', () => {
       expect(ll.size).toBe(0);
     });
   });
-  describe('addToHead method test suite', () => {
+  describe('addToHead method', () => {
     const ll = new SinglyLinkedList();
     ll.addToHead('New York');
     test('should add new value to head', () => {
@@ -37,7 +37,7 @@ describe('Singly Linked List Class', () => {
       expect(ll.size).toBe(2);
     });
   });
-  describe('addToTail method test suite', () => {
+  describe('addToTail method', () => {
     const chores = new SinglyLinkedList();
     chores.addToTail('Wash Dishes');
     test('should add new node to empty list', () => {
@@ -60,7 +60,7 @@ describe('Singly Linked List Class', () => {
       expect(chores.size).toBe(4);
     });
   });
-  describe('removeHead method test suite', () => {
+  describe('removeHead method', () => {
     test('should return null when removing from empty list', () => {
       const places = new SinglyLinkedList();
       expect(places.removeHead()).toBeNull();
@@ -85,7 +85,7 @@ describe('Singly Linked List Class', () => {
       expect(places.size).toBe(3);
     });
   });
-  describe('removeTail method test suite', () => {
+  describe('removeTail method', () => {
     test('should return null if list is empty', () => {
       const ll = new SinglyLinkedList();
       expect(ll.removeTail()).toBeNull();
@@ -136,6 +136,16 @@ describe('Singly Linked List Class', () => {
       ll.head.next.next.next = ll.head.next;
       // check cycle
       expect(ll.hasCycle()).toBe(true);
+    });
+  });
+  describe('cycleLength method', () => {
+    test('should return the length of the cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3]);
+      // attach cycle
+      ll.head.next.next.next = ll.head.next;
+      // check cycle
+      expect(ll.cycleLength()).toBe(3);
     });
   });
 });
