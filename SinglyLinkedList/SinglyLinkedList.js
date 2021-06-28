@@ -96,6 +96,25 @@ class SinglyLinkedList {
     }
     return false;
   }
+
+  cycleLength(head = this.head) {
+    let slow = head;
+    let fast = head;
+    while (fast !== null && fast.next !== null) {
+      fast = fast.next.next;
+      slow = slow.next;
+      if (slow === fast) {
+        let current = slow;
+        let length = 0;
+        while (true) {
+          current = current.next;
+          length++;
+          if (current === slow) break;
+        }
+        return length;
+      }
+    }
+  }
   /**
    * @param {Array} arr Values to add to the linked list
    */

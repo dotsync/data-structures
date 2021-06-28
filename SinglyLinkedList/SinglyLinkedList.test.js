@@ -142,9 +142,25 @@ describe('Singly Linked List Class', () => {
     test('should return the length of the cycle', () => {
       const ll = new SinglyLinkedList();
       ll.insertNodesAtTail([1, 2, 3]);
-      // attach cycle
       ll.head.next.next.next = ll.head.next;
-      // check cycle
+      expect(ll.cycleLength()).toBe(2);
+    });
+    test('should return the length of the small cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5]);
+      ll.head.next.next.next.next.next = ll.head.next.next;
+      expect(ll.cycleLength()).toBe(3);
+    });
+    test('should return the length of the large cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5, 6]);
+      ll.head.next.next.next.next.next.next = ll.head.next.next;
+      expect(ll.cycleLength()).toBe(4);
+    });
+    test('should return the length of the cycle', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5, 6]);
+      ll.head.next.next.next.next.next.next = ll.head.next.next.next;
       expect(ll.cycleLength()).toBe(3);
     });
   });
