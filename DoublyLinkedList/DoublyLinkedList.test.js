@@ -49,7 +49,6 @@ describe('Doubly Linked List', () => {
       expect(dll.tail.prev.value).toBe('Second');
       expect(dll.tail.prev.prev.value).toBe('Third');
       expect(dll.tail.prev.prev.prev).toBeNull();
-      console.log(dll.head.next.next);
     });
   });
   describe('addToTail method', () => {

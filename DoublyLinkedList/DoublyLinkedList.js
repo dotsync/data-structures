@@ -43,6 +43,17 @@ class DoublyLinkedList {
     if (!this.tail) this.tail = newHead;
     this.size++;
   }
+  addToTail(value) {
+    const newTail = new Node(value);
+    const currentTail = this.tail;
+    if (currentTail) {
+      currentTail.next = newTail;
+      newTail.prev = currentTail;
+    }
+    this.tail = newTail;
+    if (!this.head) this.head = newTail;
+    this.size++;
+  }
 }
 
 module.exports = DoublyLinkedList;
