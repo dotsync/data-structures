@@ -51,6 +51,13 @@ describe('Singly Linked List Class', () => {
       expect(choirs.head.next.value).toBe('Vacuum');
       expect(choirs.head.next.next).toBeNull();
       expect(choirs.size).toBe(2);
+      choirs.addToTail('Mop');
+      expect(choirs.head.next.next.value).toBe('Mop');
+      expect(choirs.size).toBe(3);
+      choirs.addToTail('Laundry');
+      expect(choirs.head.next.next.next.value).toBe('Laundry');
+      expect(choirs.head.next.next.next.next).toBeNull();
+      expect(choirs.size).toBe(4);
     });
   });
 });

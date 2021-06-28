@@ -46,6 +46,7 @@ class SinglyLinkedList {
     result.push('tail');
     console.log(result);
   }
+  removeHead() {}
 }
 
 module.exports = SinglyLinkedList;
