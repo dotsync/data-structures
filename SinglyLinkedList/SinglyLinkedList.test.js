@@ -25,7 +25,6 @@ describe('Singly Linked List Class', () => {
     const ll = new SinglyLinkedList();
     ll.addToHead('New York');
     test('should add new value to head', () => {
-      console.log(ll);
       expect(ll.head.value).toBe('New York');
       expect(ll.head.next).toBeNull();
       expect(ll.size).toBe(1);
