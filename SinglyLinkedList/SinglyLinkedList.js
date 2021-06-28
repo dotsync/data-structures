@@ -46,7 +46,16 @@ class SinglyLinkedList {
     result.push('tail');
     console.log(result);
   }
-  removeHead() {}
+  removeHead() {
+    if (!this.head) {
+      return null;
+    } else {
+      const oldHead = this.head;
+      const newHead = this.head.next;
+      this.head = newHead;
+      return [oldHead, this.size];
+    }
+  }
 }
 
 module.exports = SinglyLinkedList;

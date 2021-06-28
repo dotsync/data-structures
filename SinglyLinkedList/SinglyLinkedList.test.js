@@ -38,26 +38,34 @@ describe('Singly Linked List Class', () => {
     });
   });
   describe('addToTail method test suite', () => {
-    const choirs = new SinglyLinkedList();
-    choirs.addToTail('Wash Dishes');
+    const chores = new SinglyLinkedList();
+    chores.addToTail('Wash Dishes');
     test('should add new node to empty list', () => {
-      expect(choirs.head.value).toBe('Wash Dishes');
-      expect(choirs.head.next).toBeNull();
-      expect(choirs.size).toBe(1);
+      expect(chores.head.value).toBe('Wash Dishes');
+      expect(chores.head.next).toBeNull();
+      expect(chores.size).toBe(1);
     });
     test('should add new nodes to tail', () => {
-      choirs.addToTail('Vacuum');
-      expect(choirs.head.value).toBe('Wash Dishes');
-      expect(choirs.head.next.value).toBe('Vacuum');
-      expect(choirs.head.next.next).toBeNull();
-      expect(choirs.size).toBe(2);
-      choirs.addToTail('Mop');
-      expect(choirs.head.next.next.value).toBe('Mop');
-      expect(choirs.size).toBe(3);
-      choirs.addToTail('Laundry');
-      expect(choirs.head.next.next.next.value).toBe('Laundry');
-      expect(choirs.head.next.next.next.next).toBeNull();
-      expect(choirs.size).toBe(4);
+      chores.addToTail('Vacuum');
+      expect(chores.head.value).toBe('Wash Dishes');
+      expect(chores.head.next.value).toBe('Vacuum');
+      expect(chores.head.next.next).toBeNull();
+      expect(chores.size).toBe(2);
+      chores.addToTail('Mop');
+      expect(chores.head.next.next.value).toBe('Mop');
+      expect(chores.size).toBe(3);
+      chores.addToTail('Laundry');
+      expect(chores.head.next.next.next.value).toBe('Laundry');
+      expect(chores.head.next.next.next.next).toBeNull();
+      expect(chores.size).toBe(4);
     });
+  });
+
+  describe('removeHead method test suite', () => {
+    const places = new SinglyLinkedList();
+    test('should return null when removing from empty list', () => {
+      expect(places.removeHead()).toBeNull();
+    });
+    test('should remove items from the head of the list', () => {});
   });
 });
