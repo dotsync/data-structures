@@ -46,6 +46,7 @@ class SinglyLinkedList {
     result.push('tail');
     console.log(result);
   }
+  // removeHead
   removeHead() {
     if (!this.head) {
       return null;
@@ -53,7 +54,16 @@ class SinglyLinkedList {
       const oldHead = this.head;
       const newHead = this.head.next;
       this.head = newHead;
+      this.size--;
       return [oldHead, this.size];
+    }
+  }
+  /**
+   * @param {Array} arr Values to add to the linked list
+   */
+  insertNodesAtTail(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      this.addToTail(arr[i]);
     }
   }
 }

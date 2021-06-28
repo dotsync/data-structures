@@ -60,12 +60,29 @@ describe('Singly Linked List Class', () => {
       expect(chores.size).toBe(4);
     });
   });
-
   describe('removeHead method test suite', () => {
-    const places = new SinglyLinkedList();
     test('should return null when removing from empty list', () => {
+      const places = new SinglyLinkedList();
       expect(places.removeHead()).toBeNull();
     });
-    test('should remove items from the head of the list', () => {});
+    test('should remove from a list that has only one node', () => {
+      const ll = new SinglyLinkedList();
+      ll.addToTail(1);
+      ll.removeHead();
+      expect(ll.head).toBeNull();
+    });
+
+    test('should remove items from the head of the list', () => {
+      const places = new SinglyLinkedList();
+      places.insertNodesAtTail([1, 2, 3, 4, 5]);
+      expect(places.head.value).toBe(1);
+      expect(places.size).toBe(5);
+      places.removeHead();
+      expect(places.head.value).toBe(2);
+      expect(places.size).toBe(4);
+      places.removeHead();
+      expect(places.head.value).toBe(3);
+      expect(places.size).toBe(3);
+    });
   });
 });
