@@ -22,6 +22,7 @@ class SinglyLinkedList {
     }
   }
   // addToTail
+  addToTail(value) {}
   // print
 }
 

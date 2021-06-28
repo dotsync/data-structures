@@ -38,4 +38,20 @@ describe('Singly Linked List Class', () => {
       expect(ll.size).toBe(2);
     });
   });
+  describe('addToTail method test suite', () => {
+    const choirs = new SinglyLinkedList();
+    choirs.addToTail('Wash Dishes');
+    test('should add new node to empty list', () => {
+      expect(choirs.head.value).toBe('Wash Dishes');
+      expect(choirs.head.next).toBeNull();
+      expect(choirs.size).toBe(1);
+    });
+    test('should add new nodes to tail', () => {
+      choirs.addToTail('Vacuum');
+      expect(choirs.head.value).toBe('Wash Dishes');
+      expect(choirs.head.next.value).toBe('Vacuum');
+      expect(choirs.head.next.next).toBeNull();
+      expect(choirs.size).toBe(2);
+    });
+  });
 });
