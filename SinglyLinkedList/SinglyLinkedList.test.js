@@ -164,4 +164,35 @@ describe('Singly Linked List Class', () => {
       expect(ll.cycleLength()).toBe(3);
     });
   });
+  describe('findMiddleNode method', () => {
+    test('should return the middle node for odd length list', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5]);
+      expect(ll.findMiddleNode()).toBe(3);
+    });
+    test('should return the middle (node + 1) value for even length list', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5, 6]);
+      expect(ll.findMiddleNode()).toBe(4);
+    });
+    test('should return the middle node value for ', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5, 6, 7]);
+      expect(ll.findMiddleNode()).toBe(4);
+    });
+  });
 });
+/**
+ *
+ *
+ * Input: 1 -> 2 -> 3 -> 4 -> 5 -> null
+Output: 3
+Example 2:
+
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
+Output: 4
+Example 3:
+
+Input: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> null
+Output: 4
+ */
