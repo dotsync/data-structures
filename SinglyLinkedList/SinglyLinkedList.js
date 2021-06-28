@@ -115,6 +115,18 @@ class SinglyLinkedList {
       }
     }
   }
+  findMiddleNode() {
+    let fast = this.head;
+    let slow = this.head;
+    // iterate over list with 2 pointers
+    while (fast !== null && fast.next !== null) {
+      // slow and fast
+      fast = fast.next.next;
+      slow = slow.next;
+    }
+    return slow.value;
+  }
+
   /**
    * @param {Array} arr Values to add to the linked list
    */
