@@ -13,10 +13,9 @@ describe('Doubly Linked List', () => {
     });
   });
   describe('addToHead method', () => {
-    const dll = new DoublyLinkedList();
-    // add new node to head of doubly linked list
-    dll.addToHead('First');
     test('should add node to empty list', () => {
+      const dll = new DoublyLinkedList();
+      dll.addToHead('First');
       expect(dll.head.value).toBe('First');
       expect(dll.head.next).toBeNull();
       expect(dll.head.prev).toBeNull();
@@ -24,15 +23,18 @@ describe('Doubly Linked List', () => {
     });
 
     test('should be head and tail if it is the only node in the list', () => {
+      const dll = new DoublyLinkedList();
+      dll.addToHead('First');
       expect(dll.tail.value).toBe('First');
       expect(dll.tail.next).toBeNull();
       expect(dll.tail.prev).toBeNull();
       expect(dll.size).toBe(1);
     });
-
+    const dll = new DoublyLinkedList();
+    dll.addToHead('First');
+    dll.addToHead('Second');
+    dll.addToHead('Third');
     test('should add node to the head of the list that already has nodes', () => {
-      dll.addToHead('Second');
-      dll.addToHead('Third');
       expect(dll.head.value).toBe('Third');
       expect(dll.head.next.value).toBe('Second');
       expect(dll.head.next.next.value).toBe('First');
@@ -48,6 +50,20 @@ describe('Doubly Linked List', () => {
       expect(dll.tail.prev.prev.value).toBe('Third');
       expect(dll.tail.prev.prev.prev).toBeNull();
       console.log(dll.head.next.next);
+    });
+  });
+  describe('addToTail method', () => {
+    test('should add to tail and head when adding to empty list', () => {
+      const dll = new DoublyLinkedList();
+      dll.addToTail(1);
+      expect(dll.head.value).toBe(1);
+      expect(dll.head.next).toBeNull();
+      expect(dll.head.prev).toBeNull();
+      expect(dll.tail.value).toBe(1);
+      expect(dll.tail.next).toBeNull();
+      expect(dll.tail.prev).toBeNull();
+      expect(dll.tail.next).toBeNull();
+      expect(dll.size).toBe(1);
     });
   });
 });
