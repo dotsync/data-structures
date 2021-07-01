@@ -182,17 +182,3 @@ describe('Singly Linked List Class', () => {
     });
   });
 });
-/**
- *
- *
- * Input: 1 -> 2 -> 3 -> 4 -> 5 -> null
-Output: 3
-Example 2:
-
-Input: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
-Output: 4
-Example 3:
-
-Input: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> null
-Output: 4
- */
