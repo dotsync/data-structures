@@ -126,6 +126,19 @@ class SinglyLinkedList {
     }
     return slow.value;
   }
+  reverse() {
+    let pre = null;
+    let current = this.head;
+
+    while (current !== null) {
+      const next = current.next;
+
+      current.next = pre;
+      pre = current;
+      current = next;
+    }
+    return pre;
+  }
 
   /**
    * @param {Array} arr Values to add to the linked list

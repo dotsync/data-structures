@@ -181,4 +181,17 @@ describe('Singly Linked List Class', () => {
       expect(ll.findMiddleNode()).toBe(4);
     });
   });
+  describe('reverse method', () => {
+    test('should do nothing if given an empty list to reverse', () => {
+      const ll = new SinglyLinkedList();
+      ll.reverse();
+      expect(ll.head).toBeNull();
+    });
+    test('should reverse the linked list and return the new head', () => {
+      const ll = new SinglyLinkedList();
+      ll.insertNodesAtTail([1, 2, 3, 4, 5]); // input head 1->2->3->4->5 tail
+      const reversedHead = ll.reverse();
+      expect(reversedHead.value).toBe(5);
+    });
+  });
 });
