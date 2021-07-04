@@ -92,4 +92,29 @@ describe('Doubly Linked List', () => {
       expect(dll.head.prev).toBeNull();
     });
   });
+  describe('removeHead method', () => {
+    test('should return null if trying to remove from empty list', () => {
+      const dll = new DoublyLinkedList();
+      expect(dll.removeHead()).toBeNull();
+    });
+    test('should remove both the tail and head if list only has one item', () => {
+      const dll = new DoublyLinkedList();
+      dll.addToHead('one');
+      dll.removeHead();
+      expect(dll.head).toBeNull();
+      // expect(dll.head.next).toBeNull();
+      // expect(dll.head.prev).toBeNull();
+      expect(dll.tail).toBeNull();
+      // expect(dll.tail.nexy).toBeNull();
+      // expect(dll.tail.prev).toBeNull();
+    });
+    test('should remove many items from the head of the list', () => {
+      const dll = new DoublyLinkedList();
+      dll.addToHead('three');
+      dll.addToHead('two');
+      dll.addToHead('one');
+      dll.removeHead(); // remove one
+      expect(dll.head.value).toBe('two');
+    });
+  });
 });

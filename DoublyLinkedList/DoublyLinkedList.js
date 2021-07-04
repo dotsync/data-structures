@@ -54,6 +54,38 @@ class DoublyLinkedList {
     if (!this.head) this.head = newTail;
     this.size++;
   }
+  removeHead() {
+    let currentHead = this.head;
+    // if there is no head
+    if (!currentHead) return null;
+    // if there is no head.next (just one item)
+    this.size--;
+    if (currentHead.next === null) {
+      this.head = null;
+      this.tail = null;
+      return currentHead;
+    } else {
+      // switch next and prev pointers
+      let nextNode = currentHead.next;
+      this.head = nextNode;
+      this.head.prev = null;
+      return this.head;
+    }
+  }
+  // return the tail that is being removed or null
+  removeTail() {
+    let currentTail = this.tail;
+    if (!currentTail) return null;
+    this.size--;
+    if (currentTail.prev === null) {
+      this.tail = null;
+      this.head = null;
+      return currentTail;
+    } else {
+      this.tail = currentTail.prev;
+      this.tail.next = null;
+    }
+  }
 }
 
 module.exports = DoublyLinkedList;
